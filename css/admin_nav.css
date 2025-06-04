@@ -1,0 +1,47 @@
+:root {
+    --primary-color: #5563de;
+    --bg-dark: #333;
+    --text-light: #fff;
+}
+
+.admin-nav {
+    background: var(--bg-dark);
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.admin-nav .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.admin-nav .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--text-light);
+    text-decoration: none;
+}
+
+.admin-nav .menu {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.admin-nav .menu li a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 1rem;
+    padding-bottom: 2px;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+}
+
+.admin-nav .menu li a:hover {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+}

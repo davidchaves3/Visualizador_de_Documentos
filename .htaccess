@@ -1,0 +1,25 @@
+# Ativar o mecanismo de reescrita de URL
+RewriteEngine On
+Options +Indexes +FollowSymLinks
+Require all granted
+
+# Redirecionar HTTP para HTTPS
+#RewriteCond %{HTTPS} off
+#RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+# Impedir listagem de diretórios
+Options -Indexes
+
+# Bloquear acesso direto a arquivos sensíveis
+<FilesMatch "\.(pdf|doc|docx|xls|xlsx|txt)$">
+    Require all granted
+</FilesMatch>
+
+
+# Habilitar URLs amigáveis (exemplo: /documento/123 em vez de /visualizar.php?id=123)
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.+)$ $1.php [L]
+
+# Exemplo de reescrita de URL para visualização de documentos
+RewriteRule ^documento/([0-9]+)/?$ visualizar.php?id=$1 [L,QSA]
