@@ -1,99 +1,155 @@
 :root {
-    --primary-color: #5563de;
-    --primary-hover: #4455bd;
-    --secondary-color: #f9f9f9;
-    --text-color: #333;
-    --border-color: #ddd;
-    --font-family: 'Roboto', sans-serif;
+    --primary-color: #2E7D32; /* Verde principal do SENAR-TO */
+    --primary-hover: #1B5E20; /* Verde mais escuro para hover */
+    --secondary-color: #f8f9fa; /* Fundo claro para seções */
+    --text-color: #333; /* Cor de texto padrão */
+    --border-color: #e0e0e0; /* Cor de borda suave */
+    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fonte consistente */
+    --shadow-light: rgba(0, 0, 0, 0.08);
+    --shadow-medium: rgba(0, 0, 0, 0.12);
 }
 
 body {
     font-family: var(--font-family);
-    background-color: #f4f4f4;
+    background-color: #ffffff; /* Fundo branco para consistência */
     margin: 0;
     color: var(--text-color);
+    line-height: 1.6;
 }
 
 h1, h2 {
     text-align: center;
-    margin-bottom: 20px;
-    color: var(--text-color);
+    margin-bottom: 25px;
+    color: var(--primary-hover); /* Títulos em verde escuro */
+    font-weight: 600;
+}
+
+h1 {
+    font-size: 2.2rem;
+    padding-top: 20px;
+}
+
+h2 {
+    font-size: 1.8rem;
 }
 
 /* Formulário de cadastro */
 form {
-    max-width: 500px;
-    margin: 0 auto 30px;
-    padding: 20px;
+    max-width: 550px;
+    margin: 0 auto 40px;
+    padding: 30px;
     background-color: var(--secondary-color);
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    box-shadow: 0 8px 25px var(--shadow-light);
+    border: 1px solid #e8f5e8;
 }
 
 form label {
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
     font-weight: 500;
+    color: #555;
 }
 
 form input[type="text"],
 form input[type="email"],
-form input[type="password"] {
+form input[type="password"],
+form select { /* Adicionado select para consistência */
     width: 100%;
-    padding: 10px;
-    border: 1px solid var(--border-color);
-    border-radius: 4px;
-    margin-bottom: 15px;
+    padding: 12px 15px;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    margin-bottom: 20px;
     font-size: 1rem;
+    background-color: white;
+    transition: all 0.3s ease;
+}
+
+form input[type="text"]:focus,
+form input[type="email"]:focus,
+form input[type="password"]:focus,
+form select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.1);
+    transform: translateY(-1px);
 }
 
 form button {
     display: block;
     width: 100%;
-    padding: 10px;
-    background-color: var(--primary-color);
+    padding: 15px;
+    background-color: var(--primary-color); /* Cor sólida */
     color: #fff;
     border: none;
-    border-radius: 4px;
-    font-size: 1rem;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(46, 125, 50, 0.2);
 }
 
 form button:hover {
-    background-color: var(--primary-hover);
+    background-color: var(--primary-hover); /* Cor sólida no hover */
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(46, 125, 50, 0.3);
 }
 
 /* Mensagens */
 p {
     text-align: center;
+    padding: 15px;
+    background-color: #e8f5e8; /* Fundo verde claro para mensagens */
+    color: var(--primary-hover);
+    border-radius: 8px;
+    margin: 20px auto;
+    max-width: 500px;
+    border: 1px solid #d4edda;
 }
 
 /* Tabela de usuários */
 table {
     width: 100%;
-    max-width: 900px;
-    margin: 20px auto;
-    border-collapse: collapse;
+    max-width: 1000px;
+    margin: 30px auto;
+    border-collapse: separate; /* Usar separate para border-radius */
+    border-spacing: 0;
     background-color: #fff;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 25px var(--shadow-light);
+    border-radius: 12px;
+    overflow: hidden; /* Para aplicar border-radius na tabela */
 }
 
 table th, table td {
-    padding: 12px 15px;
-    border: 1px solid var(--border-color);
+    padding: 15px 20px;
+    border-bottom: 1px solid #f0f0f0; /* Bordas mais suaves */
     text-align: left;
 }
 
 table th {
-    background-color: var(--primary-color);
+    background-color: var(--primary-color); /* Cor sólida */
     color: #fff;
     text-transform: uppercase;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+table th:first-child {
+    border-top-left-radius: 12px;
+}
+
+table th:last-child {
+    border-top-right-radius: 12px;
 }
 
 table tr:nth-child(even) {
-    background-color: #f9f9f9;
+    background-color: #fafafa; /* Linhas alternadas mais claras */
+}
+
+table tr:last-child td {
+    border-bottom: none;
 }
 
 /* Links e Ações */
@@ -101,42 +157,126 @@ a {
     color: var(--primary-color);
     text-decoration: none;
     font-weight: 500;
+    transition: color 0.3s ease;
 }
 
 a:hover {
+    color: var(--primary-hover);
     text-decoration: underline;
 }
 
-/* Responsividade */
-@media (max-width: 600px) {
-    form, table {
-        width: 100%;
-    }
-    
-    table th, table td {
-        font-size: 0.8rem;
-        padding: 8px;
-    }
-}
 /* Botão Editar */
-.btn-edit {
+.btn-edit, .btn-delete { /* Adicionado .btn-delete para consistência */
     display: inline-block;
-    padding: 8px 12px;
-    background-color: #007bff;
+    padding: 8px 14px;
+    background-color: #4CAF50; /* Verde sólido para editar */
     color: white;
     text-decoration: none;
-    border-radius: 5px;
-    font-size: 14px;
-    font-weight: bold;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 500;
     text-align: center;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    transition: all 0.3s ease;
+    margin-right: 8px;
+    box-shadow: 0 2px 8px rgba(76, 175, 80, 0.2);
 }
 
 .btn-edit:hover {
-    background-color: #0056b3;
-    transform: scale(1.05);
+    background-color: #2E7D32; /* Verde mais escuro no hover */
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
 }
 
+.btn-delete {
+    background-color: #D32F2F; /* Vermelho sólido para deletar */
+    box-shadow: 0 2px 8px rgba(211, 47, 47, 0.2);
+}
 
+.btn-delete:hover {
+    background-color: #B71C1C; /* Vermelho mais escuro no hover */
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(211, 47, 47, 0.3);
+}
 
+/* Responsividade */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+    h2 {
+        font-size: 1.5rem;
+    }
+    form {
+        padding: 20px;
+        margin: 0 auto 30px;
+    }
+    form input, form button, form select {
+        padding: 10px 12px;
+        font-size: 0.95rem;
+    }
+    table {
+        margin: 20px auto;
+        border-radius: 8px;
+    }
+    table th, table td {
+        padding: 10px 12px;
+        font-size: 0.85rem;
+    }
+    .btn-edit, .btn-delete {
+        padding: 6px 10px;
+        font-size: 0.8rem;
+        margin-right: 5px;
+    }
+}
 
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+    h2 {
+        font-size: 1.3rem;
+    }
+    form {
+        padding: 15px;
+    }
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+        border-radius: 0;
+    }
+    table thead, table tbody, table th, table td, table tr {
+        display: block;
+    }
+    table th {
+        text-align: right;
+        background-color: var(--primary-color); /* Cor sólida */
+        color: white;
+        padding: 10px 15px;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    table td {
+        border-bottom: 1px solid #eee;
+        position: relative;
+        padding-left: 50%;
+        text-align: right;
+    }
+    table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 45%;
+        padding-left: 15px;
+        font-weight: bold;
+        text-align: left;
+        color: #555;
+    }
+    table th:first-child, table th:last-child {
+        border-radius: 0;
+    }
+    .btn-edit, .btn-delete {
+        width: auto;
+        display: inline-block;
+        margin-top: 5px;
+    }
+}

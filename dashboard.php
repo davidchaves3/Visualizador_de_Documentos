@@ -25,7 +25,6 @@ $nome_usuario = $_SESSION['nome'];
 $departamento = $_SESSION['departamento'];
 
 function listarArquivos($pasta, $processo_nome) {
-    //global $usuario_id, $nome_usuario;
 
     if (!is_dir($pasta)) {
         echo "<p>Nenhum documento disponível.</p>";
@@ -53,7 +52,6 @@ function listarArquivos($pasta, $processo_nome) {
     echo "</ul>";
 }
 function listarProcessos($pasta) {
-    //global $usuario_id, $nome_usuario;
 
     if (!is_dir($pasta)) {
         echo "<p>Nenhum processo disponível.</p>";
@@ -88,7 +86,6 @@ $user = $stmt->fetch(PDO::FETCH_ASSOC);
 <head>
     <meta charset="UTF-8">
     <title>Dashboard - Processos por Mesa</title>
-    <link rel="stylesheet" href="css/style.css?v=<?= time() ?>">
     <link rel="stylesheet" href="css/dashboard.css?v=<?= time() ?>">
     <link rel="icon" href="img/icone.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/modal.css?v=<?= time() ?>">

@@ -44,7 +44,7 @@ $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <title>Gestão de Usuários - Administração</title>
     <link rel="stylesheet" href="../css/admin.css">
     <link rel="stylesheet" href="../css/admin_nav.css">
-    <link rel="stylesheet" href="../css/delete_modal.css">
+    <!--<link rel="stylesheet" href="../css/delete_modal.css">-->
     <link rel="icon" href="../img/icone.ico" type="image/x-icon">
 </head>
 <body>

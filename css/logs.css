@@ -1,153 +1,285 @@
-/* Estilo Geral */
+:root {
+    --primary-color: #2E7D32; /* Verde principal do SENAR-TO */
+    --primary-hover: #1B5E20; /* Verde mais escuro para hover */
+    --secondary-color: #f8f9fa; /* Fundo claro para seções */
+    --text-color: #333; /* Cor de texto padrão */
+    --border-color: #e0e0e0; /* Cor de borda suave */
+    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fonte consistente */
+    --shadow-light: rgba(0, 0, 0, 0.08);
+    --shadow-medium: rgba(0, 0, 0, 0.12);
+}
+
 body {
-  font-family: 'Arial', sans-serif;
-  background-color: #f4f6f9;
-  margin: 0;
-  
+    font-family: var(--font-family);
+    background-color: #ffffff; /* Fundo branco para consistência */
+    margin: 0;
+    color: var(--text-color);
+    line-height: 1.6;
+    padding-bottom: 40px; /* Espaço para o botão voltar */
 }
 
-/* Título */
-h1 {
-  text-align: center;
-  color: #2c3e50;
-  font-size: 28px;
-  margin-bottom: 20px;
-}
-
-/* Container */
-.logs-container {
-  max-width: 95%;
-  margin: 0 auto;
-  background: #ffffff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Tabela */
-.logs-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
-}
-
-.logs-table th, .logs-table td {
-  padding: 12px;
-  text-align: center;
-  border-bottom: 1px solid #ddd;
-}
-
-.logs-table th {
-  text-align: center;
-  background-color: #2c3e50;
-  color: #ffffff;
-  font-weight: bold;
-}
-
-/* Linhas Alternadas */
-.logs-table tr:nth-child(even) {
-  background-color: #f2f2f2;
-}
-
-/* Hover na Tabela */
-.logs-table tr:hover {
-  background-color: #dfe6e9;
-  transition: 0.3s;
-}
-
-/* Botão de Voltar */
-.back-button {
-  display: inline-block;
-  padding: 10px 15px;
-  margin: 20px 0;
-  background-color: #2c3e50;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: background-color 0.3s;
-}
-
-.back-button:hover {
-  background-color: #34495e;
-}
-
-/* Estilizando o Menu de Logs */
+/* Navegação de logs */
 .logs-menu {
-  background: #2c3e50;
-  padding: 10px;
-  text-align: center;
+    background: #f8f9fa;
+    padding: 15px 0;
+    box-shadow: 0 2px 10px var(--shadow-light);
+    border-bottom: 2px solid #e8f5e8;
 }
 
 .logs-menu ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  gap: 15px;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-.logs-menu li {
-  padding: 10px;
-  font-size: 16px;
+.logs-menu ul li a,
+.logs-menu ul li.active {
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: 500;
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
 }
 
-.logs-menu a {
-  text-decoration: none;
-  color: white;
-  font-weight: bold;
-  transition: 0.3s;
+.logs-menu ul li a:hover {
+    background: #e8f5e8;
+    color: var(--primary-hover);
+    border-color: #4CAF50;
+    transform: translateY(-2px);
 }
 
-.logs-menu a:hover, .logs-menu .active {
-  color: #f1c40f;
+.logs-menu ul li.active {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+    cursor: default;
 }
-#documento{
-  text-align: left;
+
+/* Título principal */
+h1 {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #4CAF50 100%);
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 300;
+    margin-bottom: 0;
+    box-shadow: 0 4px 15px rgba(27, 94, 32, 0.15);
 }
-/* Posicionamento da paginação */
+
+/* Container principal dos logs */
+.logs-container {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+/* Tabela de logs */
+.logs-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background-color: #fff;
+    box-shadow: 0 8px 25px var(--shadow-light);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
+.logs-table th, .logs-table td {
+    padding: 15px 20px;
+    border-bottom: 1px solid #f0f0f0;
+    text-align: left;
+}
+
+.logs-table th {
+    background-color: var(--primary-color); /* Cor sólida */
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.logs-table th:first-child {
+    border-top-left-radius: 12px;
+}
+
+.logs-table th:last-child {
+    border-top-right-radius: 12px;
+}
+
+.logs-table tr:nth-child(even) {
+    background-color: #fafafa;
+}
+
+.logs-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* Paginação */
 .pagination {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 20px;
-  padding: 10px;
-  background-color: #f8f9fa;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  flex-wrap: wrap;
-  max-width: 100%;
-  overflow-x: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 30px;
+    padding: 15px 20px;
+    background-color: var(--secondary-color);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px var(--shadow-light);
+    border: 1px solid #e8f5e8;
 }
 
-/* Links da paginação */
 .page-link {
-  padding: 8px 12px;
-  margin: 4px;
-  background-color: #2c3e50;
-  color: white;
-  border-radius: 5px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: 0.3s;
-  display: inline-block;
+    text-decoration: none;
+    color: var(--primary-color);
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    border: 1px solid transparent;
 }
 
 .page-link:hover {
-  background-color: #34495e;
+    background-color: #e8f5e8;
+    color: var(--primary-hover);
+    border-color: #d4edda;
+    transform: translateY(-2px);
 }
 
 .page-link.active {
-  background-color: #f1c40f;
-  color: #2c3e50;
-  font-weight: bold;
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+    cursor: default;
+    box-shadow: 0 2px 8px rgba(46, 125, 50, 0.2);
 }
 
-/* Para evitar quebra de layout */
+.page-link.active:hover {
+    background-color: var(--primary-color); /* Mantém a cor ativa no hover */
+    color: white;
+    transform: none;
+    box-shadow: 0 2px 8px rgba(46, 125, 50, 0.2);
+}
+
+.pagination span.page-link {
+    background: none;
+    border: none;
+    color: #999;
+    cursor: default;
+    font-weight: normal;
+}
+
+/* Botão Voltar */
+.back-button {
+    display: block;
+    width: fit-content;
+    margin: 40px auto 0;
+    padding: 12px 25px;
+    background-color: #6c757d; /* Cinza neutro */
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+}
+
+.back-button:hover {
+    background-color: #5a6268;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsividade */
 @media (max-width: 768px) {
-  .pagination {
-      flex-wrap: wrap;
-  }
+    h1 {
+        font-size: 1.8rem;
+    }
+    .logs-menu ul {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+    .logs-menu ul li a,
+    .logs-menu ul li.active {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+    .logs-container {
+        padding: 0 15px;
+    }
+    .logs-table th, .logs-table td {
+        padding: 12px 15px;
+        font-size: 0.85rem;
+    }
+    .pagination {
+        flex-wrap: wrap;
+        gap: 8px;
+        padding: 10px;
+    }
+    .page-link {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+    .back-button {
+        padding: 10px 20px;
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+    .logs-table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+        border-radius: 0;
+    }
+    .logs-table thead, .logs-table tbody, .logs-table th, .logs-table td, .logs-table tr {
+        display: block;
+    }
+    .logs-table th {
+        text-align: right;
+        background-color: var(--primary-color);
+        color: white;
+        padding: 10px 15px;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .logs-table td {
+        border-bottom: 1px solid #eee;
+        position: relative;
+        padding-left: 50%;
+        text-align: right;
+    }
+    .logs-table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 45%;
+        padding-left: 15px;
+        font-weight: bold;
+        text-align: left;
+        color: #555;
+    }
+    .logs-table th:first-child, .logs-table th:last-child {
+        border-radius: 0;
+    }
+    .pagination {
+        justify-content: space-around;
+    }
+    .page-link {
+        flex-grow: 1;
+        text-align: center;
+    }
 }
